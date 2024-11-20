@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eklinikk</title>
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Basic Body Style */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffffff;
+      padding-top: 180px; /* Adjusted for nav */
+    }
+
+    /* Navbar Styling */
+    nav {
+      background-color: #fcdddd;
+      color: white;
+      padding: 15px 0;
+      position: absolute;
+      top: 200px;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      margin: 0 150px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 18px;
+      margin-right: 90px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Styling for Logo Image */
+    .image-over-navbar {
+      position: absolute;
+      top: -90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px; /* Set width for consistent sizing */
+      max-width: 100%;
+      height: auto;
+      z-index: 900; /* Ensure logo is above navbar */
+    }
+
+    /* Page Header */
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #333;
+      margin-top: 100px;
+      font-weight: 700;
+    }
+
+    /* Section Styling */
+    .section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #d87979;
+      margin-bottom: 20px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* Treatment and Price List */
+    .treatment-price-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+      justify-items: center;
+    }
+
+    .treatment-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .treatment-item:hover {
+      transform: scale(1.15);
+    }
+
+    .treatment-item h3 {
+      font-size: 1.3rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .treatment-price {
+      font-size: 1.5rem;
+      color: #d87979;
+      font-weight: bold;
+    }
+
+    /* Price List for Packages */
+    #prisliste h3 {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      color: #555;
+    }
+
+    #prisliste h2 {
+      color: #d87979;
+      font-size: 1.8rem;
+      margin-top: 40px;
+    }
+
+    /* Package Price Styling */
+    .package-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      text-align: center;
+      transition: transform 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .package-item:hover {
+      transform: scale(1.05);
+    }
+
+    .package-item h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .package-price {
+      font-size: 1.8rem;
+      color: #d87979;
+      font-weight: bold;
+    }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 768px) {
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 10px 0;
+      }
+
+      .treatment-price-list {
+        grid-template-columns: 1fr;
+      }
+
+      .package-item {
+        margin-top: 20px;
+      }
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #d87979;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Logo Image -->
+  <img src="pictures/image.png" alt="Beauty Clinic Logo" class="image-over-navbar">
+
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html">Hjem</a>
+    <a href="Behandlinger.html">Behandlinger</a>
+    <a href="Timebestilling.html">Timebestilling</a>
+    <a href="Kontakt.html">Kontakt</a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="section">
+    <h1>PRISLISTE FOR INJEKSJONBEHANDLINGER 2025</h1>
+  </div>
+
+  <!-- Treatments Section -->
+  <div class="section" id="behandlinger">
+    <h2>BEHANDLINGER</h2>
+
+    <div class="treatment-price-list">
+      <div class="treatment-item">
+        <h3>Botox</h3>
+        <div class="treatment-price">1500kr</div>
+      </div>
+      <div class="treatment-item">
+        <h3>Filler</h3>
+        <div class="treatment-price">1500kr</div>
+      </div>
+      <div class="treatment-item">
+        <h3>X-Salmon DNA</h3>
+        <div class="treatment-price">1500kr</div>
+      </div>
+      <div class="treatment-item">
+        <h3>Parisian Glow (minst 2 behandlinger)</h3>
+        <div class="treatment-price">1500kr</div>
+      </div>
+      <div class="treatment-item">
+        <h3>PRP-Behandling m/KALSIUM 10ml. glass</h3>
+        <div class="treatment-price">1200kr</div>
+      </div>
+      <div class="treatment-item">
+        <h3>Hyaluronsyre</h3>
+        <div class="treatment-price">900kr</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Price List Section -->
+  <div class="section" id="prisliste">
+    <h2>PAKKEPRIS LISTE FOR 2025</h2>
+
+    <!-- Package 1 -->
+    <div class="package-item">
+      <h3>PAKKE NR.1: 5-Behandlinger X-Salmon DNA + 1 PRP Behandling m/Kalsium</h3>
+      <div class="package-price">6750kr</div>
+    </div>
+
+    <!-- Package 2 -->
+    <div class="package-item">
+      <h3>PAKKE NR.2: 8-Behandlinger PRP-Behandling m/Kalsium</h3>
+      <div class="package-price">6000kr</div>
+    </div>
+
+    <!-- Package 3 -->
+    <div class="package-item">
+      <h3>PAKKE NR.3: 6-Behandlinger med Hyaluronsyre</h3>
+      <div class="package-price">5500kr</div>
+    </div>
+
+    <!-- Package 4 -->
+    <div class="package-item">
+      <h3>PAKKE NR.4: 5-Behandlinger med Parisian Glow + 1 PRP Behandling m/Kalsium</h3>
+      <div class="package-price">6750kr</div>
+    </div>
+  </div>
+
+
+  <!--footer-->
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2025 Eklinikk. All rights reserved.</p>
+      <div>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a> | 
+        <a href="https://www.instagram.com/ceylanguursoy/" target="_blank">Instagram</a> | 
+        <a href="mailto:eklinikk@gmail.com">Email</a>
+      </div>
+    </footer>
+
+</body>
+</html>
