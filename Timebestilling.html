@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eklinikk</title>
+  <title>Time Booking | Eklinikk</title>
   <style>
-    /* Global Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Basic Body Style */
+    /* Global Styling */
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #ffffff;
-      padding-top: 180px;
       margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
-    /* Navbar Styling */
-    nav {
+     /* Navbar Styling */
+     nav {
       background-color: #fcdddd;
       color: white;
       padding: 15px 0;
@@ -39,6 +38,7 @@
       text-decoration: none;
       color: rgb(0, 0, 0);
       margin: 0 15px;
+      margin-right: 150px;
       font-weight: bold;
       text-transform: uppercase;
       font-size: 18px;
@@ -60,219 +60,72 @@
       z-index: 900;
     }
 
-    /* Page Header */
-    h1 {
+    /* Booking Form Section */
+    .booking-container {
+      max-width: 600px;
+      margin-top: 320px; /* Adjust for fixed navbar */
+      padding: 30px;
+      background-color: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    .booking-container h2 {
       text-align: center;
-      font-size: 2.5rem;
-      color: #333;
-      margin-top: 100px;
-      font-weight: 700;
-    }
-
-    /* Section Styling */
-    .section {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-
-    .section h2 {
       font-size: 2rem;
       color: #d87979;
       margin-bottom: 20px;
-      text-align: center;
-      text-transform: uppercase;
     }
 
-    /* Treatment and Price List */
-    .treatment-price-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 20px;
-      justify-items: center;
-    }
-
-    .treatment-item {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 90%;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .treatment-item:hover {
-      transform: scale(1.15);
-    }
-
-    .treatment-item h3 {
-      font-size: 1.3rem;
+    .booking-form label {
+      font-size: 1.1rem;
       color: #333;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      display: block;
     }
 
-    .treatment-price {
-      font-size: 1.5rem;
-      color: #d87979;
-      font-weight: bold;
-    }
-
-    /* Price List for Packages */
-    #prisliste h3 {
-      font-size: 1.5rem;
-      margin-top: 10px;
-      color: #555;
-    }
-
-    #prisliste h2 {
-      color: #d87979;
-      font-size: 1.8rem;
-      margin-top: 40px;
-    }
-
-    /* Package Price Styling */
-    .package-item {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    .booking-form input, .booking-form select {
       width: 100%;
-      text-align: center;
-      transition: transform 0.3s ease;
-      margin-top: 20px;
-    }
-
-    .package-item:hover {
-      transform: scale(1.05);
-    }
-
-    .package-item h3 {
-      font-size: 1.5rem;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .package-price {
-      font-size: 1.8rem;
-      color: #d87979;
-      font-weight: bold;
-    }
-
-    /* Hamburger menu styles */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-      z-index: 1001;
-    }
-
-    .hamburger div {
-      background-color: #333;
-      width: 25px;
-      height: 3px;
+      padding: 10px;
+      margin-bottom: 20px;
       border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      background-color: #f8f8f8;
     }
 
-    /* Responsive Design for smaller screens */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      nav a {
-        margin: 10px 0;
-      }
-
-      /* Adjust logo */
-      .image-over-navbar {
-        top: -60px;
-        width: 250px;
-      }
-
-      /* Section header font size */
-      h1 {
-        font-size: 2rem;
-      }
-
-      .section h2 {
-        font-size: 1.5rem;
-      }
-
-      /* Single column for treatment list */
-      .treatment-price-list {
-        grid-template-columns: 1fr;
-      }
-
-      /* Stack package items */
-      .package-item {
-        margin-top: 20px;
-      }
-
-      footer {
-        padding: 20px 10px;
-      }
-
-      footer a {
-        margin: 0 5px;
-      }
-
-      /* Hide navbar links by default on mobile */
-      nav a {
-        display: none;
-        text-align: center;
-        padding: 10px 0;
-      }
-
-      /* Display navbar links when menu is open */
-      nav.active a {
-        display: block;
-      }
-
-      /* Show hamburger menu */
-      .hamburger {
-        display: flex;
-      }
+    .booking-form input:focus, .booking-form select:focus {
+      outline: none;
+      border-color: #d87979;
     }
 
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.5rem;
-      }
+    .booking-form button {
+      background-color: #d87979;
+      color: white;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-      .treatment-item h3 {
-        font-size: 1.1rem;
-      }
-
-      .treatment-price {
-        font-size: 1.3rem;
-      }
-
-      .package-item h3 {
-        font-size: 1.3rem;
-      }
-
-      .package-price {
-        font-size: 1.6rem;
-      }
+    .booking-form button:hover {
+      background-color: #b76363;
     }
 
     /* Footer Styling */
     footer {
       background-color: #d87979;
       color: white;
-      padding: 20px 0;
+      padding: 20px;
       text-align: center;
-      position: relative;
-      bottom: 0;
       width: 100%;
-      font-size: 14px;
+      margin-top: 50px;
     }
 
     footer a {
@@ -284,90 +137,78 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .logo {
+        height: 40px; /* Adjust logo size */
+      }
+
+      .nav-links {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .nav-links a {
+        margin: 5px 0; /* Adjust spacing for mobile */
+        font-size: 14px;
+      }
+
+      footer {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Logo Image -->
-  <img src="pictures/image.png" alt="Beauty Clinic Logo" class="image-over-navbar">
+   <!-- Logo Image -->
+   <img src="pictures/image.png" alt="Beauty Clinic Logo" class="image-over-navbar">
 
-  <!-- Navbar -->
-  <nav>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <a href="index.html">Hjem</a>
-    <a href="Behandlinger.html">Behandlinger</a>
-    <a href="Timebestilling.html">Timebestilling</a>
-    <a href="Kontakt.html">Kontakt</a>
-  </nav>
+   <!-- Navbar -->
+   <nav>
+     <div class="hamburger" id="hamburger">
+       <div></div>
+       <div></div>
+       <div></div>
+     </div>
+     <a href="index.html">Hjem</a>
+     <a href="Behandlinger.html">Behandlinger</a>
+     <a href="Timebestilling.html">Timebestilling</a>
+     <a href="Kontakt.html">Kontakt</a>
+   </nav>
 
-  <!-- Main Content -->
-  <div class="section">
-    <h1>PRISLISTE FOR INJEKSJONSBEHANDLINGER 2025</h1>
-  </div>
+  <!-- Booking Form Section -->
+  <div class="booking-container">
+    <h2>Book Your Appointment</h2>
+    <form class="booking-form" id="booking-form" action="/submit-booking" method="POST">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Enter your full name">
 
-  <!-- Treatments Section -->
-  <div class="section" id="behandlinger">
-    <h2>BEHANDLINGER</h2>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email address">
 
-    <div class="treatment-price-list">
-      <div class="treatment-item">
-        <h3>Botox</h3>
-        <div class="treatment-price">1500kr</div>
-      </div>
-      <div class="treatment-item">
-        <h3>Filler</h3>
-        <div class="treatment-price">2000kr</div>
-      </div>
-      <div class="treatment-item">
-        <h3>Fjerning av Filler</h3>
-        <div class="treatment-price">990kr</div>
-      </div>
-      <div class="treatment-item">
-        <h3>X-Salmon DNA</h3>
-        <div class="treatment-price">1500kr</div>
-      </div>
-      <div class="treatment-item">
-        <h3>Parisian Glow (minst 2 behandlinger)</h3>
-        <div class="treatment-price">1500kr</div>
-      </div>
-      <div class="treatment-item">
-        <h3>PRP-Behandling</h3>
-        <div class="treatment-price">1200kr</div>
-      </div>
-      <div class="treatment-item">
-        <h3>Hyaluronsyre</h3>
-        <div class="treatment-price">1200kr</div>
-      </div>
-    </div>
-  </div>
+      <label for="phone">Phone (Optional):</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
 
-  <!-- Price List Section -->
-  <div class="section" id="prisliste">
-    <h2>PAKKEPRIS LISTE FOR 2025</h2>
+      <label for="date">Select Date:</label>
+      <input type="date" id="date" name="date" required>
 
-    <div class="package-item">
-      <h3>PAKKE NR.1: 5-Behandlinger X-Salmon DNA + 1 PRP Behandling m/Kalsium</h3>
-      <div class="package-price">6900kr</div>
-    </div>
+      <label for="time">Preferred Time:</label>
+      <select id="time" name="time" required>
+        <option value="09:00">09:00 AM</option>
+        <option value="10:00">10:00 AM</option>
+        <option value="11:00">11:00 AM</option>
+        <option value="12:00">12:00 PM</option>
+        <option value="13:00">01:00 PM</option>
+        <option value="14:00">02:00 PM</option>
+        <option value="15:00">03:00 PM</option>
+        <option value="16:00">04:00 PM</option>
+      </select>
 
-    <div class="package-item">
-      <h3>PAKKE NR.2: 8-Behandlinger PRP-Behandling</h3>
-      <div class="package-price">7200kr</div>
-    </div>
-
-    <div class="package-item">
-      <h3>PAKKE NR.3: 6-Behandlinger med Hyaluronsyre</h3>
-      <div class="package-price">5500kr</div>
-    </div>
-
-    <div class="package-item">
-      <h3>PAKKE NR.4: 4-Behandlinger med Parisian Glow + 2 PRP Behandling</h3>
-      <div class="package-price">6900kr</div>
-    </div>
+      <button type="submit">Book Appointment</button>
+    </form>
   </div>
 
   <!-- Footer Section -->
@@ -381,12 +222,12 @@
   </footer>
 
   <script>
-    // Toggle the hamburger menu
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.querySelector('nav');
-
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
+    // Optional JavaScript to handle form submission or form validation
+    const bookingForm = document.getElementById('booking-form');
+    bookingForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Your appointment has been booked!'); // Simple confirmation
+      // In production, you would send the form data to the server here
     });
   </script>
 
