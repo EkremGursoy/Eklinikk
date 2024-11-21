@@ -16,7 +16,8 @@
     body {
       font-family: 'Arial', sans-serif;
       background-color: #ffffff;
-      padding-top: 180px; /* Adjusted for nav */
+      padding-top: 180px;
+      margin: 0;
     }
 
     /* Navbar Styling */
@@ -25,35 +26,38 @@
       color: white;
       padding: 15px 0;
       position: absolute;
-      top: 200px;
+      top: 205px;
       width: 100%;
       z-index: 1000;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     nav a {
       text-decoration: none;
       color: rgb(0, 0, 0);
-      margin: 0 150px;
+      margin: 0 15px;
       font-weight: bold;
       text-transform: uppercase;
       font-size: 18px;
-      margin-right: 90px;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    /* Styling for Logo Image */
+    /* Logo Styling */
     .image-over-navbar {
       position: absolute;
       top: -90px;
       left: 50%;
       transform: translateX(-50%);
-      width: 400px; /* Set width for consistent sizing */
+      width: 400px;
       max-width: 100%;
       height: auto;
-      z-index: 900; /* Ensure logo is above navbar */
+      z-index: 900;
     }
 
     /* Page Header */
@@ -156,23 +160,106 @@
       font-weight: bold;
     }
 
+    /* Hamburger menu styles */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      z-index: 1001;
+    }
+
+    .hamburger div {
+      background-color: #333;
+      width: 25px;
+      height: 3px;
+      border-radius: 5px;
+    }
+
     /* Responsive Design for smaller screens */
     @media (max-width: 768px) {
       nav {
-        text-align: center;
+        flex-direction: column;
+        padding: 20px;
       }
 
       nav a {
-        display: inline-block;
         margin: 10px 0;
       }
 
+      /* Adjust logo */
+      .image-over-navbar {
+        top: -60px;
+        width: 250px;
+      }
+
+      /* Section header font size */
+      h1 {
+        font-size: 2rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      /* Single column for treatment list */
       .treatment-price-list {
         grid-template-columns: 1fr;
       }
 
+      /* Stack package items */
       .package-item {
         margin-top: 20px;
+      }
+
+      footer {
+        padding: 20px 10px;
+      }
+
+      footer a {
+        margin: 0 5px;
+      }
+
+      /* Hide navbar links by default on mobile */
+      nav a {
+        display: none;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      /* Display navbar links when menu is open */
+      nav.active a {
+        display: block;
+      }
+
+      /* Show hamburger menu */
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .treatment-item h3 {
+        font-size: 1.1rem;
+      }
+
+      .treatment-price {
+        font-size: 1.3rem;
+      }
+
+      .package-item h3 {
+        font-size: 1.3rem;
+      }
+
+      .package-price {
+        font-size: 1.6rem;
       }
     }
 
@@ -197,7 +284,6 @@
     footer a:hover {
       text-decoration: underline;
     }
-
   </style>
 </head>
 <body>
@@ -207,6 +293,11 @@
 
   <!-- Navbar -->
   <nav>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <a href="index.html">Hjem</a>
     <a href="Behandlinger.html">Behandlinger</a>
     <a href="Timebestilling.html">Timebestilling</a>
@@ -224,12 +315,20 @@
 
     <div class="treatment-price-list">
       <div class="treatment-item">
-        <h3>Botox</h3>
-        <div class="treatment-price">1500kr</div>
+        <h3>Rynkebehandling</h3>
+        <div class="treatment-price">fra 1490kr</div>
+      </div>
+      <div class="treatment-item">
+        <h3>Medisinsk Injeksjoner</h3>
+        <div class="treatment-price">fra 3490kr</div>
       </div>
       <div class="treatment-item">
         <h3>Filler</h3>
         <div class="treatment-price">2000kr</div>
+      </div>
+      <div class="treatment-item">
+        <h3>Fjerning av Filler</h3>
+        <div class="treatment-price">990kr</div>
       </div>
       <div class="treatment-item">
         <h3>X-Salmon DNA</h3>
@@ -246,7 +345,6 @@
       <div class="treatment-item">
         <h3>Hyaluronsyre</h3>
         <div class="treatment-price">1200kr</div>
-
       </div>
     </div>
   </div>
@@ -255,42 +353,46 @@
   <div class="section" id="prisliste">
     <h2>PAKKEPRIS LISTE FOR 2025</h2>
 
-    <!-- Package 1 -->
     <div class="package-item">
       <h3>PAKKE NR.1: 5-Behandlinger X-Salmon DNA + 1 PRP Behandling m/Kalsium</h3>
       <div class="package-price">6900kr</div>
     </div>
 
-    <!-- Package 2 -->
     <div class="package-item">
       <h3>PAKKE NR.2: 8-Behandlinger PRP-Behandling</h3>
       <div class="package-price">7200kr</div>
     </div>
 
-    <!-- Package 3 -->
     <div class="package-item">
       <h3>PAKKE NR.3: 6-Behandlinger med Hyaluronsyre</h3>
       <div class="package-price">5500kr</div>
     </div>
 
-    <!-- Package 4 -->
     <div class="package-item">
       <h3>PAKKE NR.4: 4-Behandlinger med Parisian Glow + 2 PRP Behandling</h3>
       <div class="package-price">6900kr</div>
     </div>
   </div>
 
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Eklinikk. All rights reserved.</p>
+    <div>
+      <a href="https://www.facebook.com" target="_blank">Facebook</a> | 
+      <a href="https://www.instagram.com/ceylanguursoy/" target="_blank">Instagram</a> | 
+      <a href="mailto:eklinikk@gmail.com">Email</a>
+    </div>
+  </footer>
 
-  <!--footer-->
-    <!-- Footer Section -->
-    <footer>
-      <p>&copy; 2025 Eklinikk. All rights reserved.</p>
-      <div>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a> | 
-        <a href="https://www.instagram.com/ceylanguursoy/" target="_blank">Instagram</a> | 
-        <a href="mailto:eklinikk@gmail.com">Email</a>
-      </div>
-    </footer>
+  <script>
+    // Toggle the hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.querySelector('nav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>
