@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eklinikk</title>
+  <title>Eklinikk - Aesthetic Treatments</title>
   <style>
     /* Global Reset */
     * {
@@ -84,183 +84,44 @@
       text-transform: uppercase;
     }
 
-    /* Treatment and Price List */
-    .treatment-price-list {
+    /* Aesthetic Treatments Section */
+    .treatments-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
+      gap: 20px;
       padding: 20px;
-      justify-items: center;
     }
 
     .treatment-item {
       background-color: white;
-      padding: 20px;
       border-radius: 8px;
+      overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 90%;
       text-align: center;
       transition: transform 0.3s ease;
     }
 
     .treatment-item:hover {
-      transform: scale(1.15);
-    }
-
-    .treatment-item h3 {
-      font-size: 1.3rem;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .treatment-price {
-      font-size: 1.5rem;
-      color: #d87979;
-      font-weight: bold;
-    }
-
-    /* Price List for Packages */
-    #prisliste h3 {
-      font-size: 1.5rem;
-      margin-top: 10px;
-      color: #555;
-    }
-
-    #prisliste h2 {
-      color: #d87979;
-      font-size: 1.8rem;
-      margin-top: 40px;
-    }
-
-    /* Package Price Styling */
-    .package-item {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      text-align: center;
-      transition: transform 0.3s ease;
-      margin-top: 20px;
-    }
-
-    .package-item:hover {
       transform: scale(1.05);
     }
 
-    .package-item h3 {
-      font-size: 1.5rem;
+    .treatment-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 2px solid #d87979;
+    }
+
+    .treatment-item h3 {
+      padding: 10px 0;
+      font-size: 1.3rem;
       color: #333;
-      margin-bottom: 10px;
     }
 
-    .package-price {
-      font-size: 1.8rem;
-      color: #d87979;
-      font-weight: bold;
-    }
-
-    /* Hamburger menu styles */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-      z-index: 1001;
-    }
-
-    .hamburger div {
-      background-color: #333;
-      width: 25px;
-      height: 3px;
-      border-radius: 5px;
-    }
-
-    /* Responsive Design for smaller screens */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      nav a {
-        margin: 10px 0;
-      }
-
-      /* Adjust logo */
-      .image-over-navbar {
-        top: -60px;
-        width: 250px;
-      }
-
-      /* Section header font size */
-      h1 {
-        font-size: 2rem;
-      }
-
-      .section h2 {
-        font-size: 1.5rem;
-      }
-
-      /* Single column for treatment list */
-      .treatment-price-list {
-        grid-template-columns: 1fr;
-      }
-
-      /* Stack package items */
-      .package-item {
-        margin-top: 20px;
-      }
-
-      footer {
-        padding: 20px 10px;
-      }
-
-      footer a {
-        margin: 0 5px;
-      }
-
-      /* Hide navbar links by default on mobile */
-      nav a {
-        display: none;
-        text-align: center;
-        padding: 10px 0;
-      }
-
-      /* Display navbar links when menu is open */
-      nav.active a {
-        display: block;
-      }
-
-      /* Show hamburger menu */
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      .treatment-item h3 {
-        font-size: 1.1rem;
-      }
-
-      .treatment-price {
-        font-size: 1.3rem;
-      }
-
-      .package-item h3 {
-        font-size: 1.3rem;
-      }
-
-      .package-price {
-        font-size: 1.6rem;
-      }
+    .treatment-item p {
+      padding: 10px;
+      font-size: 1rem;
+      color: #555;
     }
 
     /* Footer Styling */
@@ -284,6 +145,49 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+
+      .image-over-navbar {
+        top: -60px;
+        width: 250px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      .treatments-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .treatment-item h3 {
+        font-size: 1.2rem;
+      }
+
+      .treatment-item p {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -306,71 +210,48 @@
 
   <!-- Main Content -->
   <div class="section">
-    <h1>PRISLISTE FOR INJEKSJONSBEHANDLINGER 2025</h1>
+    <h1>Velkommen til Eklinikk - Estetiske Behandlinger</h1>
   </div>
 
-  <!-- Treatments Section -->
-  <div class="section" id="behandlinger">
-    <h2>BEHANDLINGER</h2>
+  <!-- Aesthetic Treatments Section -->
+  <div class="section">
+    <h2>Våre Behandlinger</h2>
 
-    <div class="treatment-price-list">
+    <div class="treatments-gallery">
+      <!-- Treatment Item 1 -->
       <div class="treatment-item">
+        <img src="pictures/pexels-cottonbro-7582560.jpg" alt="Rynkebehandling">
         <h3>Rynkebehandling</h3>
-        <div class="treatment-price">fra 1490kr</div>
+        <p>Fjern rynker og få en glatt og ungdommelig hud.</p>
       </div>
+      
+      <!-- Treatment Item 2 -->
       <div class="treatment-item">
-        <h3>Medisinsk Injeksjoner</h3>
-        <div class="treatment-price">fra 3490kr</div>
-      </div>
-      <div class="treatment-item">
+        <img src="pictures/lips-8704166_640.jpg" alt="Filler Behandling">
         <h3>Filler</h3>
-        <div class="treatment-price">2000kr</div>
+        <p>Forbedre ansiktskonturene og volumet med hyaluronsyre.</p>
       </div>
+
+      <!-- Treatment Item 3 -->
       <div class="treatment-item">
-        <h3>Fjerning av Filler</h3>
-        <div class="treatment-price">990kr</div>
+        <img src="pictures/pexels-karolina-grabowska-6629391.jpg" alt="PRP Behandling">
+        <h3>PRP Behandling</h3>
+        <p>Naturlig ansiktsforyngelse med din egen blodplasma.</p>
       </div>
+
+      <!-- Treatment Item 4 -->
       <div class="treatment-item">
-        <h3>X-Salmon DNA</h3>
-        <div class="treatment-price">1500kr</div>
+        <img src="pictures/pexels-rethaferguson-3825529.jpg" alt="Medisinsk Injeksjon">
+        <h3>Medisinsk Injeksjon</h3>
+        <p>Forbedre hudens helse med medisinske injeksjoner.</p>
       </div>
+
+      <!-- Treatment Item 5 -->
       <div class="treatment-item">
-        <h3>Parisian Glow (minst 2 behandlinger)</h3>
-        <div class="treatment-price">1500kr</div>
-      </div>
-      <div class="treatment-item">
-        <h3>PRP-Behandling</h3>
-        <div class="treatment-price">1200kr</div>
-      </div>
-      <div class="treatment-item">
+        <img src="pictures/pexels-shvetsa-4586713.jpg" alt="Hyaluronsyre Behandling">
         <h3>Hyaluronsyre</h3>
-        <div class="treatment-price">1200kr</div>
+        <p>Fukt og plump huden med hyaluronsyre.</p>
       </div>
-    </div>
-  </div>
-
-  <!-- Price List Section -->
-  <div class="section" id="prisliste">
-    <h2>PAKKEPRIS LISTE FOR 2025</h2>
-
-    <div class="package-item">
-      <h3>PAKKE NR.1: 5-Behandlinger X-Salmon DNA + 1 PRP Behandling m/Kalsium</h3>
-      <div class="package-price">6900kr</div>
-    </div>
-
-    <div class="package-item">
-      <h3>PAKKE NR.2: 8-Behandlinger PRP-Behandling</h3>
-      <div class="package-price">7200kr</div>
-    </div>
-
-    <div class="package-item">
-      <h3>PAKKE NR.3: 6-Behandlinger med Hyaluronsyre</h3>
-      <div class="package-price">5500kr</div>
-    </div>
-
-    <div class="package-item">
-      <h3>PAKKE NR.4: 4-Behandlinger med Parisian Glow + 2 PRP Behandling</h3>
-      <div class="package-price">6900kr</div>
     </div>
   </div>
 
