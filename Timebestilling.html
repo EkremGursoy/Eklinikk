@@ -10,7 +10,7 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
+      background: linear-gradient(to bottom, #ffffff, #f9f9f9);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -19,8 +19,8 @@
       overflow-x: hidden;
     }
 
-     /* Navbar Styling */
-     nav {
+    /* Navbar Styling */
+    nav {
       background-color: #fcdddd;
       color: white;
       padding: 15px 0;
@@ -38,7 +38,6 @@
       text-decoration: none;
       color: rgb(0, 0, 0);
       margin: 0 15px;
-      margin-right: 150px;
       font-weight: bold;
       text-transform: uppercase;
       font-size: 18px;
@@ -48,7 +47,19 @@
       text-decoration: underline;
     }
 
-    /* Logo Styling */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      background-color: #000;
+      height: 3px;
+      width: 25px;
+      margin: 5px;
+    }
+
     .image-over-navbar {
       position: absolute;
       top: -90px;
@@ -63,7 +74,7 @@
     /* Booking Form Section */
     .booking-container {
       max-width: 600px;
-      margin-top: 320px; /* Adjust for fixed navbar */
+      margin-top: 350px; /* Adjust for fixed navbar */
       padding: 30px;
       background-color: white;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -86,7 +97,8 @@
       display: block;
     }
 
-    .booking-form input, .booking-form select {
+    .booking-form input,
+    .booking-form select {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
@@ -96,7 +108,8 @@
       background-color: #f8f8f8;
     }
 
-    .booking-form input:focus, .booking-form select:focus {
+    .booking-form input:focus,
+    .booking-form select:focus {
       outline: none;
       border-color: #d87979;
     }
@@ -138,46 +151,45 @@
       text-decoration: underline;
     }
 
-    /* Mobile responsiveness */
+    /* Responsive Design */
     @media (max-width: 768px) {
-      .logo {
-        height: 40px; /* Adjust logo size */
+      nav {
+        flex-direction: column;
+        align-items: center;
       }
 
-      .nav-links {
+      .hamburger {
+        display: flex;
+      }
+
+      nav a {
+        display: none;
+      }
+
+      nav.active a {
         display: block;
-        margin-top: 10px;
-        text-align: center;
-      }
-
-      .nav-links a {
-        margin: 5px 0; /* Adjust spacing for mobile */
-        font-size: 14px;
-      }
-
-      footer {
-        padding: 15px;
+        margin: 10px 0;
       }
     }
   </style>
 </head>
 <body>
 
-   <!-- Logo Image -->
-   <img src="pictures/image.png" alt="Beauty Clinic Logo" class="image-over-navbar">
+  <!-- Logo Image -->
+  <img src="pictures/image.png" alt="Beauty Clinic Logo" class="image-over-navbar">
 
-   <!-- Navbar -->
-   <nav>
-     <div class="hamburger" id="hamburger">
-       <div></div>
-       <div></div>
-       <div></div>
-     </div>
-     <a href="index.html">Hjem</a>
-     <a href="Behandlinger.html">Behandlinger</a>
-     <a href="Timebestilling.html">Timebestilling</a>
-     <a href="Kontakt.html">Kontakt</a>
-   </nav>
+  <!-- Navbar -->
+  <nav>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <a href="index.html">Hjem</a>
+    <a href="Behandlinger.html">Behandlinger</a>
+    <a href="Timebestilling.html">Timebestilling</a>
+    <a href="Kontakt.html">Kontakt</a>
+  </nav>
 
   <!-- Booking Form Section -->
   <div class="booking-container">
@@ -197,14 +209,14 @@
 
       <label for="time">Velg time:</label>
       <select id="time" name="time" required>
-        <option value="09:00">09:00 AM</option>
-        <option value="10:00">10:00 AM</option>
-        <option value="11:00">11:00 AM</option>
-        <option value="12:00">12:00 PM</option>
-        <option value="13:00">01:00 PM</option>
-        <option value="14:00">02:00 PM</option>
-        <option value="15:00">03:00 PM</option>
-        <option value="16:00">04:00 PM</option>
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
       </select>
 
       <button type="submit">Bestill</button>
@@ -222,12 +234,19 @@
   </footer>
 
   <script>
-    // Optional JavaScript to handle form submission or form validation
+    // Toggle the navbar for mobile
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.querySelector('nav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    // Handle form submission
     const bookingForm = document.getElementById('booking-form');
-    bookingForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Your appointment has been booked!'); // Simple confirmation
-      // In production, you would send the form data to the server here
+    bookingForm.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent default form submission
+      alert('Your appointment has been booked!'); // Confirmation alert
     });
   </script>
 
